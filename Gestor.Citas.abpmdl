@@ -1,0 +1,101 @@
+{
+  "template": "app",
+  "imports": {
+    "Volo.Abp.LeptonXLiteTheme": {
+      "version": "4.1.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.Account": {
+      "version": "9.1.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict": {
+      "version": "9.1.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.Identity": {
+      "version": "9.1.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.TenantManagement": {
+      "version": "9.1.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.1.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.1.1",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.1.1",
+      "isInstalled": true
+    }
+  },
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {}
+    }
+  },
+  "packages": {
+    "Gestor.Citas.Application": {
+      "path": "src/Gestor.Citas.Application/Gestor.Citas.Application.abppkg",
+      "folder": "src"
+    },
+    "Gestor.Citas.Application.Tests": {
+      "path": "test/Gestor.Citas.Application.Tests/Gestor.Citas.Application.Tests.abppkg",
+      "folder": "test"
+    },
+    "Gestor.Citas.Domain.Shared": {
+      "path": "src/Gestor.Citas.Domain.Shared/Gestor.Citas.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "Gestor.Citas.Application.Contracts": {
+      "path": "src/Gestor.Citas.Application.Contracts/Gestor.Citas.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "Gestor.Citas.HttpApi": {
+      "path": "src/Gestor.Citas.HttpApi/Gestor.Citas.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "Gestor.Citas.HttpApi.Client": {
+      "path": "src/Gestor.Citas.HttpApi.Client/Gestor.Citas.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "Gestor.Citas.EntityFrameworkCore.Tests": {
+      "path": "test/Gestor.Citas.EntityFrameworkCore.Tests/Gestor.Citas.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "Gestor.Citas.EntityFrameworkCore": {
+      "path": "src/Gestor.Citas.EntityFrameworkCore/Gestor.Citas.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "Gestor.Citas.TestBase": {
+      "path": "test/Gestor.Citas.TestBase/Gestor.Citas.TestBase.abppkg",
+      "folder": "test"
+    },
+    "Gestor.Citas.Domain.Tests": {
+      "path": "test/Gestor.Citas.Domain.Tests/Gestor.Citas.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "Gestor.Citas.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/Gestor.Citas.HttpApi.Client.ConsoleTestApp/Gestor.Citas.HttpApi.Client.ConsoleTestApp.abppkg",
+      "folder": "test"
+    },
+    "Gestor.Citas.DbMigrator": {
+      "path": "src/Gestor.Citas.DbMigrator/Gestor.Citas.DbMigrator.abppkg",
+      "folder": "src"
+    },
+    "Gestor.Citas.HttpApi.Host": {
+      "path": "src/Gestor.Citas.HttpApi.Host/Gestor.Citas.HttpApi.Host.abppkg",
+      "folder": "src"
+    },
+    "Gestor.Citas.Domain": {
+      "path": "src/Gestor.Citas.Domain/Gestor.Citas.Domain.abppkg",
+      "folder": "src"
+    }
+  }
+}

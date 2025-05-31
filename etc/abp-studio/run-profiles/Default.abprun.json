@@ -1,0 +1,25 @@
+﻿{
+  "applications": {
+    "Gestor.Citas.HttpApi.Host": {
+      "type": "dotnet-project",
+      "launchUrl": "https://localhost:44353",
+      "path": "../../../src/Gestor.Citas.HttpApi.Host/Gestor.Citas.HttpApi.Host.csproj",
+      "kubernetesService": ".*-httpapihost$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "execution": {
+        "order": 4
+      }
+    },
+    "Gestor.Citas.Angular": {
+      "type": "cli",
+      "workingDirectory": "../../../angular",
+      "startCommand": "./start.ps1",
+      "launchUrl": "http://localhost:4200",
+      "kubernetesService": ".*-angular$",
+      "execution": {
+        "order": 2
+      }    
+    }
+  }
+}

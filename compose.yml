@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres:17.4
+    container_name: postgres_db_gestor_citas
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: P@ssword12345
+      POSTGRES_DB: Citas
+    restart: always
+    ports:
+      - "5432:5432"
