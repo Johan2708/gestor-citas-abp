@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Gestor.Citas.Books;
+using Gestor.Citas.Configurations;
+using Gestor.Citas.Modules.Clientes;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.BlobStoring.Database.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -29,6 +31,7 @@ public class CitasDbContext :
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
     public DbSet<Book> Books { get; set; }
+    public DbSet<Cliente> Clientes { get; set; } 
 
     #region Entities from the modules
 
@@ -91,6 +94,8 @@ public class CitasDbContext :
         
         /* Configure your own tables/entities inside here */
 
+        new ClientesConfiguration().Configure(builder.Entity<Cliente>());
+        
         //builder.Entity<YourEntity>(b =>
         //{
         //    b.ToTable(CitasConsts.DbTablePrefix + "YourEntities", CitasConsts.DbSchema);
