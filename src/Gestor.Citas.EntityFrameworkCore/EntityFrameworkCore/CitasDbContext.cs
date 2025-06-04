@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Gestor.Citas.Books;
 using Gestor.Citas.Configurations;
+using Gestor.Citas.Modules.Cita;
 using Gestor.Citas.Modules.Clientes;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.BlobStoring.Database.EntityFrameworkCore;
@@ -32,6 +33,8 @@ public class CitasDbContext :
 
     public DbSet<Book> Books { get; set; }
     public DbSet<Cliente> Clientes { get; set; } 
+    
+    public DbSet<Cita> Citas { get; set; }
 
     #region Entities from the modules
 
@@ -102,5 +105,8 @@ public class CitasDbContext :
         //    b.ConfigureByConvention(); //auto configure for the base class props
         //    //...
         //});
+
+       
     }
+    
 }
