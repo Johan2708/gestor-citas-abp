@@ -3,6 +3,7 @@ using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Gestor.Citas.Books;
 using Gestor.Citas.Configurations;
 using Gestor.Citas.Modules.Clientes;
+using Gestor.Citas.Modules.Profesionales;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.BlobStoring.Database.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -31,7 +32,8 @@ public class CitasDbContext :
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
     public DbSet<Book> Books { get; set; }
-    public DbSet<Cliente> Clientes { get; set; } 
+    public DbSet<Cliente> Clientes { get; set; }
+    public DbSet<Profesional> Profesionales { get; set; }
 
     #region Entities from the modules
 
