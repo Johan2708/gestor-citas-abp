@@ -97,6 +97,7 @@ public class CitasDbContext :
         /* Configure your own tables/entities inside here */
 
         new ClientesConfiguration().Configure(builder.Entity<Cliente>());
+        new ProfesionalesConfiguration().Configure(builder.Entity<Profesional>());
         
         //builder.Entity<YourEntity>(b =>
         //{

@@ -13,8 +13,8 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Gestor.Citas.Migrations
 {
     [DbContext(typeof(CitasDbContext))]
-    [Migration("20250604220653_AddHoraFinToProfesional")]
-    partial class AddHoraFinToProfesional
+    [Migration("20250607014814_addProfesionales")]
+    partial class addProfesionales
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -184,22 +184,18 @@ namespace Gestor.Citas.Migrations
 
                     b.Property<string>("Direccion")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<string>("Especializacion")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
 
                     b.Property<string>("ExtraProperties")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("ExtraProperties");
-
-                    b.Property<TimeSpan>("HoraFin")
-                        .HasColumnType("interval");
-
-                    b.Property<TimeSpan>("HoraInicio")
-                        .HasColumnType("interval");
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -217,11 +213,17 @@ namespace Gestor.Citas.Migrations
 
                     b.Property<string>("Nombre")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
+
+                    b.Property<string>("Telefono")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("character varying(15)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Profesionales");
+                    b.ToTable("AppProfesionales", (string)null);
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLog", b =>
