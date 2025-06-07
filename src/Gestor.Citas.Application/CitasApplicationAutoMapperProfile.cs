@@ -1,6 +1,7 @@
 using AutoMapper;
 using Gestor.Citas.Books;
 using Gestor.Citas.Modules.Clientes;
+using Gestor.Citas.Modules.Profesionales;
 
 namespace Gestor.Citas;
 
@@ -16,5 +17,7 @@ public class CitasApplicationAutoMapperProfile : Profile
 
         CreateMap<Cliente, ClienteDto>();
         CreateMap<CreateUpdateClienteDto, Cliente>();
+        CreateMap<Profesional, ProfesionalDto>();
+        CreateMap<CreateUpdateProfesionalDto, Profesional>();
     }
 }
