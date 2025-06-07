@@ -1,4 +1,4 @@
-import type { BookDto, CreateUpdateBookDto } from './models';
+import type { CreateUpdateProfesionalDto, ProfesionalDto } from './models';
 import { RestService, Rest } from '@abp/ng.core';
 import type { PagedAndSortedResultRequestDto, PagedResultDto } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
@@ -6,14 +6,14 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class BookService {
+export class ProfesionalService {
   apiName = 'Default';
   
 
-  create = (input: CreateUpdateBookDto, config?: Partial<Rest.Config>) =>
-    this.restService.request<any, BookDto>({
+  create = (input: CreateUpdateProfesionalDto, config?: Partial<Rest.Config>) =>
+    this.restService.request<any, ProfesionalDto>({
       method: 'POST',
-      url: '/api/app/book',
+      url: '/api/app/profesional',
       body: input,
     },
     { apiName: this.apiName,...config });
@@ -22,32 +22,32 @@ export class BookService {
   delete = (id: string, config?: Partial<Rest.Config>) =>
     this.restService.request<any, void>({
       method: 'DELETE',
-      url: `/api/app/book/${id}`,
+      url: `/api/app/profesional/${id}`,
     },
     { apiName: this.apiName,...config });
   
 
   get = (id: string, config?: Partial<Rest.Config>) =>
-    this.restService.request<any, BookDto>({
+    this.restService.request<any, ProfesionalDto>({
       method: 'GET',
-      url: `/api/app/book/${id}`,
+      url: `/api/app/profesional/${id}`,
     },
     { apiName: this.apiName,...config });
   
 
   getList = (input: PagedAndSortedResultRequestDto, config?: Partial<Rest.Config>) =>
-    this.restService.request<any, PagedResultDto<BookDto>>({
+    this.restService.request<any, PagedResultDto<ProfesionalDto>>({
       method: 'GET',
-      url: '/api/app/book',
+      url: '/api/app/profesional',
       params: { sorting: input.sorting, skipCount: input.skipCount, maxResultCount: input.maxResultCount },
     },
     { apiName: this.apiName,...config });
   
 
-  update = (id: string, input: CreateUpdateBookDto, config?: Partial<Rest.Config>) =>
-    this.restService.request<any, BookDto>({
+  update = (id: string, input: CreateUpdateProfesionalDto, config?: Partial<Rest.Config>) =>
+    this.restService.request<any, ProfesionalDto>({
       method: 'PUT',
-      url: `/api/app/book/${id}`,
+      url: `/api/app/profesional/${id}`,
       body: input,
     },
     { apiName: this.apiName,...config });

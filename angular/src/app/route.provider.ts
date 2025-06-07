@@ -24,5 +24,11 @@ function configureRoutes() {
         layout: eLayoutType.application,
         requiredPolicy: 'Citas.Books',
       },
+      {
+        path: '/clientes',
+        name: '::Menu:Clients',
+        iconClass: 'fas fa-user',
+        layout: eLayoutType.application
+      },
   ]);
 }
