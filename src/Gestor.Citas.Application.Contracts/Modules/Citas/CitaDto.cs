@@ -10,7 +10,7 @@ public class CitaDto : AuditedEntityDto<Guid>
     public Guid ClienteId { get; set; }
     public ClienteDto Cliente { get; set; }
     public Guid EmpleadoId { get; set; }
-    //public EmpleadoDto Empleado { get; set; } 
+   // public ProfesionalDto Profesional { get; set; } 
     public DateTime FechaCita { get; set; }
     public string Motivo { get; set; }
 

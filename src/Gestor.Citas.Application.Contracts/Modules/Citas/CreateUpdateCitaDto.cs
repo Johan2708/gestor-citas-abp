@@ -10,7 +10,7 @@ public class CreateUpdateCitaDto
     public Guid ClienteId { get; set; }
 
     [Required]
-    public Guid EmpleadoId { get; set; }
+    public Guid ProfesionalId { get; set; }
     
     [Required]
     public DateTime FechaCita { get; set; }

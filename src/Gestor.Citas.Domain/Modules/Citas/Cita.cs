@@ -10,8 +10,8 @@ public class Cita : AuditedAggregateRoot<Guid>
     public Guid ClienteId { get; set; } 
     public virtual Cliente Cliente { get; set; } 
 
-    public Guid EmpleadoId { get; set; } 
-    //public virtual Empleado Empleado { get; set; } 
+    public Guid ProfesionalId { get; set; } 
+    //public virtual Profesional Profesional { get; set; } 
 
     public DateTime FechaCita { get; set; }
     public string Motivo { get; set; }
