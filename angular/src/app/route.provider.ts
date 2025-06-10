@@ -30,5 +30,11 @@ function configureRoutes() {
         iconClass: 'fas fa-user',
         layout: eLayoutType.application
       },
+      {
+        path: '/profesionales',
+        name: '::Menu:Professionals',
+        iconClass: 'fas fa-user-tie',
+        layout: eLayoutType.application
+      },
   ]);
 }
