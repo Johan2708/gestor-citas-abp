@@ -37,6 +37,13 @@
     "Unspecified": "Sistema",
     "SeeAllUsers": "Visualizza tutti gli utenti",
     "TakePhoto": "Fare foto",
-    "ChoosePhoto": "Scegli la foto"
+    "ChoosePhoto": "Scegli la foto",
+
+    "Client:Name": "Nome",
+    "Client:Surname": "Cognome",
+    "Client:Email": "Email",
+    "Client:PhoneNumber": "Numero di telefono",
+    "Client:Address": "Indirizzo",
+    "Client:BirthDate": "Data di nascita"
   }
 }

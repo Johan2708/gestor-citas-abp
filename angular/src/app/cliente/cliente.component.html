@@ -11,8 +11,15 @@
   </div>
   <div class="card-body">
     <ngx-datatable [rows]="client.items" [count]="client.totalCount" [list]="list" default>
-      <ngx-datatable-column [name]="'::Nombre' | abpLocalization" prop="nombre"></ngx-datatable-column>
-      <ngx-datatable-column [name]="'::Apellido' | abpLocalization" prop="apellido"></ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Client:Name' | abpLocalization" prop="nombre"></ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Client:Surname' | abpLocalization" prop="apellido"></ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Client:Email' | abpLocalization" prop="email"></ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Client:PhoneNumber' | abpLocalization" prop="telefono"></ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Client:BirthDate' | abpLocalization" prop="fechaNacimiento">
+         <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row.fechaNacimiento | date }}
+        </ng-template>
+      </ngx-datatable-column>
     </ngx-datatable>
   </div>
 </div>
