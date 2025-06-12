@@ -17,6 +17,11 @@ public class CitasPermissionDefinitionProvider : PermissionDefinitionProvider
         booksPermission.AddChild(CitasPermissions.Books.Delete, L("Permission:Books.Delete"));
         //Define your own permissions here. Example:
         //myGroup.AddPermission(CitasPermissions.MyPermission1, L("Permission:MyPermission1"));
+       
+        var clientesPermission = myGroup.AddPermission(CitasPermissions.Clientes.Default, L("Permission:Clients"));
+        clientesPermission.AddChild(CitasPermissions.Clientes.Create, L("Permission:Clients.Create"));
+        clientesPermission.AddChild(CitasPermissions.Clientes.Edit, L("Permission:Clients.Edit"));
+        clientesPermission.AddChild(CitasPermissions.Clientes.Delete, L("Permission:Clients.Delete"));
     }
 
     private static LocalizableString L(string name)

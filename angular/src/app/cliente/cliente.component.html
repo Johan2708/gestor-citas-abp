@@ -8,9 +8,9 @@
       </div>
       <div class="text-end col col-md-6">
         <div class="text-lg-end pt-2">
-          <button id="create" class="btn btn-primary" type="button" (click)="createClient()">
+          <button *abpPermission="'Citas.Clientes.Create'" id="create" class="btn btn-primary" type="button" (click)="createClient()">
             <i class="fa fa-plus me-1"></i>
-            <span>{{ "::NewClient" | abpLocalization }}</span>
+            <span>{{ "::Client:NewClient" | abpLocalization }}</span>
           </button>
         </div>
       </div>
@@ -34,11 +34,11 @@
               <i class="fa fa-cog me-1"></i>{{ '::Actions' | abpLocalization }}
             </button>
             <div ngbDropdownMenu>
-              <button ngbDropdownItem (click)="editClient(row.id)">
+              <button *abpPermission="'Citas.Clientes.Edit'" ngbDropdownItem (click)="editClient(row.id)">
                 <i class="fa fa-pen me-1"></i>
                 <span>{{ '::Edit' | abpLocalization }}</span>
               </button>
-              <button ngbDropdownItem (click)="delete(row.id)">
+              <button *abpPermission="'Citas.Clientes.Delete'" ngbDropdownItem (click)="delete(row.id)">
                 <i class="fa fa-trash me-1"></i>
                 <span>{{ '::Delete' | abpLocalization }}</span>
               </button>
