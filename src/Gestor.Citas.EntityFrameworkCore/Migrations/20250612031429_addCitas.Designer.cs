@@ -13,8 +13,8 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Gestor.Citas.Migrations
 {
     [DbContext(typeof(CitasDbContext))]
-    [Migration("20250612005705_Add_Citas")]
-    partial class Add_Citas
+    [Migration("20250612031429_addCitas")]
+    partial class addCitas
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -84,9 +84,8 @@ namespace Gestor.Citas.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Cliente")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<Guid>("ClienteId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -117,7 +116,7 @@ namespace Gestor.Citas.Migrations
                         .HasColumnName("ExtraProperties");
 
                     b.Property<DateTime>("FechaCita")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -135,16 +134,19 @@ namespace Gestor.Citas.Migrations
 
                     b.Property<string>("Motivo")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
 
                     b.Property<Guid>("ProfesionalId")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ClienteId");
+
                     b.HasIndex("ProfesionalId");
 
-                    b.ToTable("Citas");
+                    b.ToTable("AppCitas", (string)null);
                 });
 
             modelBuilder.Entity("Gestor.Citas.Modules.Clientes.Cliente", b =>
@@ -2117,11 +2119,19 @@ namespace Gestor.Citas.Migrations
 
             modelBuilder.Entity("Gestor.Citas.Modules.Cita.Cita", b =>
                 {
+                    b.HasOne("Gestor.Citas.Modules.Clientes.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Gestor.Citas.Modules.Profesionales.Profesional", "Profesional")
                         .WithMany()
                         .HasForeignKey("ProfesionalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Cliente");
 
                     b.Navigation("Profesional");
                 });

@@ -11,13 +11,16 @@ public class CitasConfiguration : IEntityTypeConfiguration<Cita>
     {
         builder.ToTable(CitasConsts.DbTablePrefix + "Citas", CitasConsts.DbSchema);
         builder.ConfigureByConvention();
-        builder.Property(x => x.Cliente).IsRequired().HasMaxLength(250);
-        builder.Property(x => x.FechaCita).IsRequired();
-        builder.Property(x => x.Motivo).IsRequired().HasMaxLength(15);
+        builder.Property(x => x.FechaCita).IsRequired().HasColumnType("date");
+        builder.Property(x => x.Motivo).IsRequired().HasMaxLength(250);
         
         builder.HasOne(x => x.Profesional)
             .WithMany()
             .HasForeignKey("ProfesionalId")
+            .IsRequired();
+        builder.HasOne(x => x.Cliente)
+            .WithMany()
+            .HasForeignKey("ClienteId")
             .IsRequired();
 
     }
