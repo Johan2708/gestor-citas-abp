@@ -28,7 +28,8 @@ function configureRoutes() {
         path: '/clientes',
         name: '::Menu:Clients',
         iconClass: 'fas fa-user',
-        layout: eLayoutType.application
+        layout: eLayoutType.application,
+        requiredPolicy: 'Citas.Clientes',
       },
 <<<<<<< Updated upstream
       {
