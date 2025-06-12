@@ -31,19 +31,17 @@ function configureRoutes() {
         layout: eLayoutType.application,
         requiredPolicy: 'Citas.Clientes',
       },
-<<<<<<< Updated upstream
       {
         path: '/profesionales',
         name: '::Menu:Professionals',
         iconClass: 'fas fa-user-tie',
         layout: eLayoutType.application
-=======
-       {
+      },
+      {
         path: '/citas',
         name: '::Appointments',
         iconClass: 'fas fa-book',
         layout: eLayoutType.application,
->>>>>>> Stashed changes
       },
   ]);
 }

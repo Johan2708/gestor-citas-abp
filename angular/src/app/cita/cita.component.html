@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="card-body">
-    <ngx-datatable [rows]="Citas.items" [count]="Citas.totalCount" [list]="list" default>
+    <ngx-datatable [rows]="cita.items" [count]="cita.totalCount" [list]="list" default>
       <ngx-datatable-column [name]="'::Cliente' | abpLocalization" prop="Cliente"></ngx-datatable-column>
     </ngx-datatable>
   </div>

@@ -1,7 +1,7 @@
 import { ListService, PagedResultDto } from '@abp/ng.core';
 import { Component ,OnInit} from '@angular/core';
-import { CitaDto } from '../proxy/citas-dto/models'; // <-- Use the correct path for CitaDto
-import { CitaService } from '../proxy/citas'; // <-- Use the correct service for CitaDto
+import { CitaDto } from '../proxy/modules/citas-dto';
+import { CitaService } from '../proxy/modules/citas';
 
 @Component({
   selector: 'app-cita',

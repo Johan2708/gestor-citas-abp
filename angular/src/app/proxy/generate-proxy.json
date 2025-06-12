@@ -5052,34 +5052,10 @@
           "regex": null
         },
         {
-          "name": "Cliente",
-          "jsonName": null,
-          "type": "Gestor.Citas.Modules.Clientes.ClienteDto",
-          "typeSimple": "Gestor.Citas.Modules.Clientes.ClienteDto",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "EmpleadoId",
+          "name": "ProfesionalId",
           "jsonName": null,
           "type": "System.Guid",
           "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Profesional",
-          "jsonName": null,
-          "type": "Gestor.Citas.Modules.Profesionales.ProfesionalDto",
-          "typeSimple": "Gestor.Citas.Modules.Profesionales.ProfesionalDto",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
