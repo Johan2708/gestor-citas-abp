@@ -17,7 +17,7 @@ namespace Gestor.Citas.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     ClienteId = table.Column<Guid>(type: "uuid", nullable: false),
-                    EmpleadoId = table.Column<Guid>(type: "uuid", nullable: false),
+                    ProfesionalId = table.Column<Guid>(type: "uuid", nullable: false),
                     FechaCita = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Motivo = table.Column<string>(type: "text", nullable: false),
                     ExtraProperties = table.Column<string>(type: "text", nullable: false),
