@@ -3,6 +3,7 @@ using System;
 using Gestor.Citas.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Volo.Abp.EntityFrameworkCore;
@@ -12,9 +13,11 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Gestor.Citas.Migrations
 {
     [DbContext(typeof(CitasDbContext))]
-    partial class CitasDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250612005705_Add_Citas")]
+    partial class Add_Citas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -81,14 +84,9 @@ namespace Gestor.Citas.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
 
-<<<<<<< Updated upstream
-                    b.Property<Guid>("ClienteId")
-                        .HasColumnType("uuid");
-=======
                     b.Property<string>("Cliente")
                         .IsRequired()
                         .HasColumnType("text");
->>>>>>> Stashed changes
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -105,10 +103,6 @@ namespace Gestor.Citas.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("CreatorId");
 
-<<<<<<< Updated upstream
-                    b.Property<Guid>("EmpleadoId")
-                        .HasColumnType("uuid");
-=======
                     b.Property<Guid?>("DeleterId")
                         .HasColumnType("uuid")
                         .HasColumnName("DeleterId");
@@ -116,7 +110,6 @@ namespace Gestor.Citas.Migrations
                     b.Property<DateTime?>("DeletionTime")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("DeletionTime");
->>>>>>> Stashed changes
 
                     b.Property<string>("ExtraProperties")
                         .IsRequired()
@@ -126,15 +119,12 @@ namespace Gestor.Citas.Migrations
                     b.Property<DateTime>("FechaCita")
                         .HasColumnType("timestamp without time zone");
 
-<<<<<<< Updated upstream
-=======
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
                         .HasDefaultValue(false)
                         .HasColumnName("IsDeleted");
 
->>>>>>> Stashed changes
                     b.Property<DateTime?>("LastModificationTime")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("LastModificationTime");
@@ -147,18 +137,12 @@ namespace Gestor.Citas.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-<<<<<<< Updated upstream
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClienteId");
-=======
                     b.Property<Guid>("ProfesionalId")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProfesionalId");
->>>>>>> Stashed changes
 
                     b.ToTable("Citas");
                 });
@@ -2133,15 +2117,6 @@ namespace Gestor.Citas.Migrations
 
             modelBuilder.Entity("Gestor.Citas.Modules.Cita.Cita", b =>
                 {
-<<<<<<< Updated upstream
-                    b.HasOne("Gestor.Citas.Modules.Clientes.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cliente");
-=======
                     b.HasOne("Gestor.Citas.Modules.Profesionales.Profesional", "Profesional")
                         .WithMany()
                         .HasForeignKey("ProfesionalId")
@@ -2149,7 +2124,6 @@ namespace Gestor.Citas.Migrations
                         .IsRequired();
 
                     b.Navigation("Profesional");
->>>>>>> Stashed changes
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLogAction", b =>

@@ -1,9 +1,13 @@
 import { ListService, PagedResultDto } from '@abp/ng.core';
 import { Component, OnInit } from '@angular/core';
+<<<<<<< Updated upstream
 import { ClienteDto, ClienteService } from '../proxy/modules/clientes';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbDateNativeAdapter, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 import { Confirmation, ConfirmationService } from '@abp/ng.theme.shared';
+=======
+import { ClienteDto, ClienteService } from '../proxy/clientes';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-cliente',
