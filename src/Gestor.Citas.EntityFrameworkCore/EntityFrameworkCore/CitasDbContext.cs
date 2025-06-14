@@ -100,6 +100,7 @@ public class CitasDbContext :
 
         new ClientesConfiguration().Configure(builder.Entity<Cliente>());
         new ProfesionalesConfiguration().Configure(builder.Entity<Profesional>());
+        new CitasConfiguration().Configure(builder.Entity<Cita>());
         
         //builder.Entity<YourEntity>(b =>
         //{

@@ -99,8 +99,13 @@ namespace Gestor.Citas.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("CreatorId");
 
-                    b.Property<Guid>("EmpleadoId")
-                        .HasColumnType("uuid");
+                    b.Property<Guid?>("DeleterId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("DeleterId");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("DeletionTime");
 
                     b.Property<string>("ExtraProperties")
                         .IsRequired()
@@ -108,7 +113,13 @@ namespace Gestor.Citas.Migrations
                         .HasColumnName("ExtraProperties");
 
                     b.Property<DateTime>("FechaCita")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false)
+                        .HasColumnName("IsDeleted");
 
                     b.Property<DateTime?>("LastModificationTime")
                         .HasColumnType("timestamp without time zone")
@@ -120,13 +131,19 @@ namespace Gestor.Citas.Migrations
 
                     b.Property<string>("Motivo")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
+
+                    b.Property<Guid>("ProfesionalId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("Citas");
+                    b.HasIndex("ProfesionalId");
+
+                    b.ToTable("AppCitas", (string)null);
                 });
 
             modelBuilder.Entity("Gestor.Citas.Modules.Clientes.Cliente", b =>
@@ -2105,7 +2122,15 @@ namespace Gestor.Citas.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Gestor.Citas.Modules.Profesionales.Profesional", "Profesional")
+                        .WithMany()
+                        .HasForeignKey("ProfesionalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Cliente");
+
+                    b.Navigation("Profesional");
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLogAction", b =>

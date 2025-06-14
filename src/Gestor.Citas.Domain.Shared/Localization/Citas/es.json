@@ -7,6 +7,8 @@
     "Menu:ArticleSample": "Muestra de artículo",
     "Menu:Books": "Libros",
     "Menu:Clients": "Clientes",
+    "Menu:Professionals": "Profesionales",
+    "Menu:Profesionales": "Profesionales",
     "Home": "Hogar",
     "Welcome": "Bienvenido",
     "LongWelcomeMessage": "Bienvenido a la aplicacion. Este es un proyecto de inicio basado en el marco ABP. Para obtener mas informacion, visite",
@@ -39,6 +41,25 @@
     "Unspecified": "Sistema",
     "SeeAllUsers": "Ver todos los usuarios",
     "TakePhoto": "Tomar foto",
-    "ChoosePhoto": "Escoge una foto"
+    "ChoosePhoto": "Escoge una foto",
+    
+    "Client:NewClient": "Nuevo cliente",
+    "Client:Name": "Nombre",
+    "Client:Surname": "Apellido",
+    "Client:Email": "Correo electrónico",
+    "Client:PhoneNumber": "Número de teléfono",
+    "Client:Address": "Dirección",
+    "Client:BirthDate": "Fecha de nacimiento",
+
+    "Permission:Citas": "Gestión de citas",
+    "Permission:Books": "Gestión de libros",
+    "Permission:Books.Create": "Crear nuevos libros",
+    "Permission:Books.Edit": "Editar los libros",
+    "Permission:Books.Delete": "Eliminar los libros",
+    
+    "Permission:Clients": "Gestión de clientes",
+    "Permission:Clients.Create": "Crear nuevos clientes",
+    "Permission:Clients.Edit": "Editar los clientes",
+    "Permission:Clients.Delete": "Eliminar los clientes"
   }
 }

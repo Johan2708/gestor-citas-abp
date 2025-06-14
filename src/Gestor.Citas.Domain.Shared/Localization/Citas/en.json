@@ -5,6 +5,8 @@
     "Menu:Citas": "Book Store",
     "Menu:Books": "Books",
     "Menu:Clients": "Clients",
+    "Menu:Professionals": "Professionals",
+    "Menu:Profesionales": "Professionals",
     "Actions": "Actions",
     "Close": "Close",
     "Delete": "Delete",
@@ -28,13 +30,30 @@
     "Enum:BookType.6": "Science",
     "Enum:BookType.7": "Science fiction",
     "Enum:BookType.8": "Poetry",
+    
+    "Menu:Home": "Home",
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information visit",
+    "Welcome": "Welcome",
+
+    "Client:NewClient": "New client",
+    "Client:Name": "Name",
+    "Client:Surname": "Surname",
+    "Client:Email": "Email",
+    "Client:PhoneNumber": "Phone number",
+    "Client:Address": "Address",
+    "Client:BirthDate": "Birth date",
+
+
     "Permission:Citas": "Book Store",
     "Permission:Books": "Book Management",
     "Permission:Books.Create": "Creating new books",
     "Permission:Books.Edit": "Editing the books",
     "Permission:Books.Delete": "Deleting the books",
-    "Menu:Home": "Home",
-    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information visit",
-    "Welcome": "Welcome"
+    
+    "Permission:Clients": "Client Management",
+    "Permission:Clients.Create": "Creating new clients",
+    "Permission:Clients.Edit": "Editing the clients",
+    "Permission:Clients.Delete": "Deleting the clients"
+    
   }
 }

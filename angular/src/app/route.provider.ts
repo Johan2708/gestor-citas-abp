@@ -28,7 +28,20 @@ function configureRoutes() {
         path: '/clientes',
         name: '::Menu:Clients',
         iconClass: 'fas fa-user',
+        layout: eLayoutType.application,
+        requiredPolicy: 'Citas.Clientes',
+      },
+      {
+        path: '/profesionales',
+        name: '::Menu:Professionals',
+        iconClass: 'fas fa-user-tie',
         layout: eLayoutType.application
+      },
+      {
+        path: '/citas',
+        name: '::Appointments',
+        iconClass: 'fas fa-book',
+        layout: eLayoutType.application,
       },
   ]);
 }

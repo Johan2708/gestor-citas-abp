@@ -18,6 +18,10 @@ public class ClienteAppService: CrudAppService<
     public ClienteAppService(IRepository<Cliente, Guid> repository)
         : base(repository)
     {
-
+        GetPolicyName = CitasPermissions.Clientes.Default;
+        GetListPolicyName = CitasPermissions.Clientes.Default;
+        CreatePolicyName = CitasPermissions.Clientes.Create;
+        UpdatePolicyName = CitasPermissions.Clientes.Edit;
+        DeletePolicyName = CitasPermissions.Clientes.Delete;
     }
 }
