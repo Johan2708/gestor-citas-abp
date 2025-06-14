@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 
@@ -11,5 +12,6 @@ public interface IClienteAppService:
         PagedAndSortedResultRequestDto,
         CreateUpdateClienteDto>
 {
-    
+
+    Task<CreateResponse> CreateNewAsync(CreateUpdateClienteDto input);
 }
