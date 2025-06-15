@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Gestor.Citas.Permissions;
 using Microsoft.AspNetCore.Authorization;
 using Volo.Abp.Application.Dtos;
@@ -7,7 +8,7 @@ using Volo.Abp.Domain.Repositories;
 
 namespace Gestor.Citas.Modules.Clientes;
 
-//[Authorize(CitasPermissions.Clientes.Default)]
+[Authorize(CitasPermissions.Clientes.Default)]
 public class ClienteAppService: CrudAppService<
     Cliente,
     ClienteDto, 
@@ -23,5 +24,12 @@ public class ClienteAppService: CrudAppService<
         CreatePolicyName = CitasPermissions.Clientes.Create;
         UpdatePolicyName = CitasPermissions.Clientes.Edit;
         DeletePolicyName = CitasPermissions.Clientes.Delete;
+    }
+
+    public async Task<CreateResponse> CreateNewAsync(CreateUpdateClienteDto input)
+    {
+        var cliente = ObjectMapper.Map<CreateUpdateClienteDto, Cliente>(input);
+        var response = await Repository.InsertAsync(cliente);
+        return new CreateResponse(response.Id);
     }
 }
