@@ -39,7 +39,7 @@ function configureRoutes() {
       },
       {
         path: '/citas',
-        name: '::Appointments',
+        name: '::Menu:Appointments',
         iconClass: 'fas fa-book',
         layout: eLayoutType.application,
       },

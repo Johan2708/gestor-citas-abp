@@ -8,7 +8,6 @@ namespace Gestor.Citas.Modules.CitasDto;
 
 public class CitaDto : AuditedEntityDto<Guid>
 {
-    public Guid Id { get; set; }
     public Guid ClienteId { get; set; }
     public Guid ProfesionalId { get; set; }
     public DateTime FechaCita { get; set; }

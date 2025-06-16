@@ -108,8 +108,19 @@ public class CitasDbContext :
         //    b.ConfigureByConvention(); //auto configure for the base class props
         //    //...
         //});
+        /*builder.Entity<Cita>(b =>
+        {
+            b.HasOne(c => c.Cliente)
+                .WithMany()
+                .HasForeignKey(c => c.ClienteId)
+                .IsRequired();
 
-       
+            b.HasOne(c => c.Profesional)
+                .WithMany()
+                .HasForeignKey(c => c.ProfesionalId)
+                .IsRequired();
+        });
+       */
     }
     
 }

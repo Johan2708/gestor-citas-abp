@@ -19,7 +19,6 @@ import { APP_ROUTE_PROVIDER } from './route.provider';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
-  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -34,6 +33,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    AppComponent,
   ],
   providers: [
     APP_ROUTE_PROVIDER,
@@ -51,6 +51,5 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     provideTenantManagementConfig(),
     provideAbpThemeShared(),
   ],
-  bootstrap: [AppComponent],
 })
 export class AppModule {}
