@@ -42,6 +42,7 @@ function configureRoutes() {
         name: '::Menu:Appointments',
         iconClass: 'fas fa-book',
         layout: eLayoutType.application,
+        requiredPolicy: 'Citas.Citas',
       },
   ]);
 }

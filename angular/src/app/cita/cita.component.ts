@@ -50,6 +50,14 @@ export class CitaComponent implements OnInit {
     this.isModalOpen = true;
   }
 
+  delete(id: string) {
+    this.confirmation.warn('¿Estás seguro de eliminar esta cita?', 'Confirmar').subscribe((status) => {
+      if (status === Confirmation.Status.confirm) {
+        this.citaService.delete(id).subscribe(() => this.list.get());
+      }
+    });
+  }
+
   buildForm() {
     this.form = this.fb.group({
       clienteId: [this.selectedCita?.clienteId ?? null, Validators.required],
