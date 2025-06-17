@@ -1,0 +1,104 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col col-md-6">
+        <h5 class="card-title">
+          {{ '::Menu:Appointments' | abpLocalization }}
+        </h5>
+      </div>
+      <div class="text-end col col-md-6">
+        <div class="text-lg-end pt-2">
+          <button *abpPermission="'Citas.Citas.Create'" id="create" class="btn btn-primary" type="button" (click)="createCita()">
+            <i class="fa fa-plus me-1"></i>
+            <span>{{ "::Cita:NewCita" | abpLocalization }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <ngx-datatable [rows]="cita.items" [count]="cita.totalCount" [list]="list" default>
+      <ngx-datatable-column
+        [name]="'::Actions' | abpLocalization"
+        [maxWidth]="150"
+        [sortable]="false"
+      >
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <div ngbDropdown container="body" class="d-inline-block">
+            <button
+              class="btn btn-primary btn-sm dropdown-toggle"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              ngbDropdownToggle
+            >
+              <i class="fa fa-cog me-1"></i>{{ '::Actions' | abpLocalization }}
+            </button>
+            <div ngbDropdownMenu>
+              <button *abpPermission="'Citas.Citas.Edit'" ngbDropdownItem (click)="editCita(row.id)">
+                <i class="fa fa-pen me-1"></i>
+                <span>{{ '::Edit' | abpLocalization }}</span>
+              </button>
+              <button *abpPermission="'Citas.Citas.Delete'" ngbDropdownItem (click)="delete(row.id)">
+                <i class="fa fa-trash me-1"></i>
+                <span>{{ '::Delete' | abpLocalization }}</span>
+              </button>
+            </div>
+          </div>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Cita:ClientId' | abpLocalization" prop="clienteId"></ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Cita:ProfesionalId' | abpLocalization" prop="profesionalId"></ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Cita:FechaCita' | abpLocalization" prop="fechaCita">
+         <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row.fechaCita | date:'short' }}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Cita:Motivo' | abpLocalization" prop="motivo"></ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</div>
+
+<!-- Modal -->
+<abp-modal [(visible)]="isModalOpen">
+  <ng-template #abpHeader>
+    <h3>{{ (selectedCita.id ? '::Edit' : '::NewCita' ) | abpLocalization }}</h3>
+  </ng-template>
+
+  <ng-template #abpBody>
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <div class="mt-2">
+        <label for="cita-cliente">{{ '::Cita:ClientId' | abpLocalization }}</label><span> * </span>
+        <input type="text" id="cita-cliente" class="form-control" formControlName="clienteId" autofocus />
+      </div>
+      <div class="mt-2">
+        <label for="cita-profesional">{{ '::Cita:ProfesionalId' | abpLocalization }}</label><span> * </span>
+        <input type="text" id="cita-profesional" class="form-control" formControlName="profesionalId" />
+      </div>
+      <div class="mt-2">
+        <label for="cita-fecha">{{ '::Cita:FechaCita' | abpLocalization }}</label><span> * </span>
+        <input
+          #datepicker="ngbDatepicker"
+          class="form-control"
+          name="datepicker"
+          formControlName="fechaCita"
+          ngbDatepicker
+          (click)="datepicker.toggle()"
+        />
+      </div>
+      <div class="mt-2">
+        <label for="cita-motivo">{{ '::Cita:Motivo' | abpLocalization }}</label><span> * </span>
+        <textarea id="cita-motivo" class="form-control" formControlName="motivo"></textarea>
+      </div>
+    </form>
+  </ng-template>
+
+  <ng-template #abpFooter>
+    <button type="button" class="btn btn-secondary" abpClose>
+      {{ '::Close' | abpLocalization }}
+    </button>
+    <button class="btn btn-primary" (click)="save()" [disabled]="form.invalid">
+      <i class="fa fa-check mr-1"></i>
+      {{ '::Save' | abpLocalization }}
+    </button>
+  </ng-template>
+</abp-modal>

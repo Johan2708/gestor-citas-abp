@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using Gestor.Citas.Modules.Profesionales;
 using Volo.Abp.Application.Dtos;
 
 namespace Gestor.Citas.Modules.CitasDto;

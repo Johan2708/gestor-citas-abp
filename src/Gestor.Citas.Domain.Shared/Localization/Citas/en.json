@@ -41,7 +41,14 @@
     "Client:Email": "Email",
     "Client:PhoneNumber": "Phone number",
     "Client:Address": "Address",
-    "Client:BirthDate": "Birth date",
+
+    "Cita:NewCita": "New appointment",
+    "Cita:Date": "Date",
+    "Cita:Time": "Time",
+    "Cita:Client": "Client",
+    "Cita:Professional": "Professional",
+    "Cita:Description": "Description",
+    "Cita:Status": "Status",
 
 
     "Permission:Citas": "Book Store",
@@ -53,7 +60,12 @@
     "Permission:Clients": "Client Management",
     "Permission:Clients.Create": "Creating new clients",
     "Permission:Clients.Edit": "Editing the clients",
-    "Permission:Clients.Delete": "Deleting the clients"
+    "Permission:Clients.Delete": "Deleting the clients",
+
+    "Permission:Citas": "Appointment Management",
+    "Permission:Citas.Create": "Creating new appointments",
+    "Permission:Citas.Edit": "Editing the appointments",
+    "Permission:Citas.Delete": "Deleting the appointments"
     
   }
 }

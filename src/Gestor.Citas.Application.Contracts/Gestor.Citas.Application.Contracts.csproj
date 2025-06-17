@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Gestor.Citas.Domain.Shared\Gestor.Citas.Domain.Shared.csproj" />
+    <ProjectReference Include="..\Gestor.Citas.Domain\Gestor.Citas.Domain.csproj" />
   </ItemGroup>
   
   <ItemGroup>
