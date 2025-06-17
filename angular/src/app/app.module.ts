@@ -14,11 +14,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { APP_ROUTE_PROVIDER } from './route.provider';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { AppComponent } from './app.component';
 
 @NgModule({
+  declarations: [
+    AppComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -33,7 +36,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    AppComponent,
   ],
   providers: [
     APP_ROUTE_PROVIDER,
@@ -51,5 +53,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     provideTenantManagementConfig(),
     provideAbpThemeShared(),
   ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

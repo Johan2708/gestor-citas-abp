@@ -1,5 +1,4 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { CitaComponent } from './cita.component';
 import { SharedModule } from '../shared/shared.module';
 import { CitaRoutingModule } from './cita-routing.module';
@@ -10,7 +9,6 @@ import { CitaRoutingModule } from './cita-routing.module';
 @NgModule({
   declarations: [CitaComponent],
   imports: [
-    CommonModule,
     SharedModule,
     CitaRoutingModule,
     // Add the correct modal module here if needed, e.g., AbpModalModule, after verifying its existence

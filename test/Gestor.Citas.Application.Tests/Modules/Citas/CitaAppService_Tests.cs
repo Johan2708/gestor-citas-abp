@@ -3,6 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Gestor.Citas.Modules.Citas;
 using Gestor.Citas.Modules.CitasDto;
+using Gestor.Citas.Modules.Clientes;
+using Gestor.Citas.Modules.Profesionales;
 using Shouldly;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Modularity;
@@ -15,10 +17,14 @@ public abstract class CitaAppService_Tests<TStartupModule> : CitasApplicationTes
     where TStartupModule : IAbpModule
 {
     private readonly ICitaAppService _citaAppService;
+    private readonly IClienteAppService _clienteAppService;
+    private readonly IProfesionalAppService _profesionalAppService;
 
     protected CitaAppService_Tests()
     {
         _citaAppService = GetRequiredService<ICitaAppService>();
+        _clienteAppService = GetRequiredService<IClienteAppService>();
+        _profesionalAppService = GetRequiredService<IProfesionalAppService>();
     }
 
     [Fact]
@@ -31,7 +37,7 @@ public abstract class CitaAppService_Tests<TStartupModule> : CitasApplicationTes
 
         // Assert
         result.TotalCount.ShouldBeGreaterThan(0);
-        result.Items.ShouldContain(c => c.Motivo == "Consulta General");
+        result.Items.ShouldContain(c => c.Motivo == "Segunda cita de ejemplo");
     }
 
     [Fact]
@@ -82,7 +88,7 @@ public abstract class CitaAppService_Tests<TStartupModule> : CitasApplicationTes
 
         var updateDto = new CreateUpdateCitaDto
         {
-            Motivo = cita.Motivo,
+            Motivo = "Cita Actualizada",
             FechaCita = cita.FechaCita,
             ClienteId = cita.ClienteId,
             ProfesionalId = cita.ProfesionalId
@@ -111,13 +117,19 @@ public abstract class CitaAppService_Tests<TStartupModule> : CitasApplicationTes
 
     private async Task<CitaDto> CreateCita(string titulo = "Nueva cita de prueba 42")
     {
+        var cliente = await _clienteAppService.GetListAsync(new PagedAndSortedResultRequestDto());
+        var profesional = await _profesionalAppService.GetListAsync(new PagedAndSortedResultRequestDto());
+        
+        var firstCliente = cliente.Items.FirstOrDefault();
+        var firstProfesional = profesional.Items.FirstOrDefault();
+        
         var response = await _citaAppService.CreateAsync(
             new CreateUpdateCitaDto
             {
-                Motivo = "Descripción de prueba",
+                Motivo = titulo,
                 FechaCita = DateTime.Now.AddDays(1),
-                ClienteId = Guid.NewGuid(), // Ajusta según tu lógica de clientes existentes
-                ProfesionalId = Guid.NewGuid() // Ajusta según tu lógica de profesionales existentes
+                ClienteId = firstCliente.Id,
+                ProfesionalId = firstProfesional.Id
             }
         );
         return response;
