@@ -1,10 +1,11 @@
-import { ListService, PagedResultDto } from '@abp/ng.core';
+import { ListService, PagedAndSortedResultRequestDto, PagedResultDto } from '@abp/ng.core';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'; // add this
 import { CitaDto } from '../proxy/modules/citas-dto';
 import { Confirmation, ConfirmationService } from '@abp/ng.theme.shared';
 import { CitaService } from '../proxy/modules/citas';
 import { NgbDateNativeAdapter, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
+import { ClienteService } from '../proxy/modules/clientes';
 
 
 @Component({
@@ -20,12 +21,14 @@ export class CitaComponent implements OnInit {
   selectedCita: CitaDto = {} as CitaDto;
   form!: FormGroup;
   isModalOpen= false;
+  listOfClientes: any[] = [];
 
   constructor(
     public readonly list: ListService,
     private citaService: CitaService,
     private fb: FormBuilder,
-    private confirmation: ConfirmationService
+    private confirmation: ConfirmationService,
+    private clienteService: ClienteService
   ) {}
 
 
@@ -34,6 +37,13 @@ export class CitaComponent implements OnInit {
 
     this.list.hookToQuery(bookStreamCreator).subscribe((response) => {
       this.cita = response;
+    });
+
+    this.clienteService.getList(new PagedAndSortedResultRequestDto()).subscribe((clientes) => {
+      this.listOfClientes = clientes.items.map(cliente => ({
+        label: cliente.nombre + ' ' + cliente.apellido,
+        value: cliente.id
+      }));
     });
   }
 

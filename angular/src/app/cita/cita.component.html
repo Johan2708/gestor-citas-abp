@@ -67,8 +67,11 @@
   <ng-template #abpBody>
     <form [formGroup]="form" (ngSubmit)="save()">
       <div class="mt-2">
-        <label for="cita-cliente">{{ '::Cita:ClientId' | abpLocalization }}</label><span> * </span>
-        <input type="text" id="cita-cliente" class="form-control" formControlName="clienteId" autofocus />
+        <label for="cliente">{{ '::Cita:ClientId' | abpLocalization }}</label><span> * </span>
+        <select class="form-control" id="cliente" formControlName="clienteId">
+          <option [ngValue]="null">Select a {{ '::Cita:ClientId' | abpLocalization }}</option>
+          <option [ngValue]="client.value" *ngFor="let client of listOfClientes"> {{client.label}} </option>
+        </select>
       </div>
       <div class="mt-2">
         <label for="cita-profesional">{{ '::Cita:ProfesionalId' | abpLocalization }}</label><span> * </span>
