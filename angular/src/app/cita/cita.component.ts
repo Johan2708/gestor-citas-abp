@@ -1,4 +1,4 @@
-import { ListService, PagedAndSortedResultRequestDto, PagedResultDto } from '@abp/ng.core';
+import { ListService, PagedResultDto } from '@abp/ng.core';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'; // add this
 import { CitaDto } from '../proxy/modules/citas-dto';
@@ -6,6 +6,8 @@ import { Confirmation, ConfirmationService } from '@abp/ng.theme.shared';
 import { CitaService } from '../proxy/modules/citas';
 import { NgbDateNativeAdapter, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 import { ClienteService } from '../proxy/modules/clientes';
+import { PagedAndSortedResultRequestDto } from '@abp/ng.core';
+import { ProfesionalService } from '../proxy/modules/profesionales';
 
 
 @Component({
@@ -22,13 +24,15 @@ export class CitaComponent implements OnInit {
   form!: FormGroup;
   isModalOpen= false;
   listOfClientes: any[] = [];
+  listOfProfesionales: any[] = [];
 
   constructor(
     public readonly list: ListService,
     private citaService: CitaService,
     private fb: FormBuilder,
     private confirmation: ConfirmationService,
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private profesionalService: ProfesionalService // Assuming you have a service for professionals, adjust as needed
   ) {}
 
 
@@ -45,7 +49,15 @@ export class CitaComponent implements OnInit {
         value: cliente.id
       }));
     });
+
+    this.profesionalService.getList(new PagedAndSortedResultRequestDto()).subscribe((profesionales) => {
+      this.listOfProfesionales = profesionales.items.map(profesional => ({
+        label: profesional.nombre + ' ' + profesional.especializacion,
+        value: profesional.id
+      }));
+    });
   }
+  
 
   createCita() {
     this.selectedCita = {} as CitaDto;

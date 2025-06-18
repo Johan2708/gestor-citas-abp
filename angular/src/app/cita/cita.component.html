@@ -73,10 +73,20 @@
           <option [ngValue]="client.value" *ngFor="let client of listOfClientes"> {{client.label}} </option>
         </select>
       </div>
-      <div class="mt-2">
-        <label for="cita-profesional">{{ '::Cita:ProfesionalId' | abpLocalization }}</label><span> * </span>
-        <input type="text" id="cita-profesional" class="form-control" formControlName="profesionalId" />
-      </div>
+
+
+
+     <div class="mt-2">
+  <label for="profesional">{{ '::Cita:ProfesionalId' | abpLocalization }}</label><span> * </span>
+  <select class="form-control" id="profesional" formControlName="profesionalId">
+    <option [ngValue]="null">Select a {{ '::Cita:ProfesionalId' | abpLocalization }}</option>
+    <option [ngValue]="professional.value" *ngFor="let professional of listOfProfessionals"> {{professional.label}} </option>
+  </select>
+</div>
+
+
+
+
       <div class="mt-2">
         <label for="cita-fecha">{{ '::Cita:FechaCita' | abpLocalization }}</label><span> * </span>
         <input
