@@ -51,14 +51,6 @@
     "Client:Address": "Dirección",
     "Client:BirthDate": "Fecha de nacimiento",
 
-    "Cita:NewCita": "Nueva cita",
-    "Cita:Date": "Fecha",
-    "Cita:Time": "Hora",
-    "Cita:Client": "Cliente",
-    "Cita:Professional": "Profesional",
-    "Cita:Description": "Descripción",
-    "Cita:Status": "Estado",
-
     "Permission:Citas": "Gestión de citas",
     "Permission:Books": "Gestión de libros",
     "Permission:Books.Create": "Crear nuevos libros",
@@ -70,9 +62,10 @@
     "Permission:Clients.Edit": "Editar los clientes",
     "Permission:Clients.Delete": "Eliminar los clientes",
 
-    "Permission:Citas": "Gestión de citas",
-    "Permission:Citas.Create": "Crear nuevas citas",
-    "Permission:Citas.Edit": "Editar las citas",
-    "Permission:Citas.Delete": "Eliminar las citas"
+    "Permission:Professionals": "Gestión de profesionales",
+    "Permission:Professionals.Create": "Crear nuevos profesionales",
+    "Permission:Professionals.Edit": "Editar los profesionales",
+    "Permission:Professionals.Delete": "Eliminar los profesionales"
+    
   }
 }

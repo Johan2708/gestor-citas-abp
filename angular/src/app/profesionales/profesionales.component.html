@@ -7,7 +7,11 @@
         </h5>
       </div>
       <div class="text-end col col-md-6">
-        <button class="btn btn-primary" type="button" (click)="createProfesional()">
+        <button
+          class="btn btn-primary"
+          type="button"
+          (click)="createProfesional()"
+          *abpPermission="'Citas.Profesionales.Create'">
           <i class="fa fa-plus me-1"></i>
           <span>Nuevo Profesional</span>
         </button>
@@ -23,11 +27,17 @@
               <i class="fa fa-cog me-1"></i> Acciones
             </button>
             <div ngbDropdownMenu>
-              <button ngbDropdownItem (click)="editProfesional(row.id)">
+              <button
+                ngbDropdownItem
+                (click)="editProfesional(row.id)"
+                *abpPermission="'Citas.Profesionales.Edit'">
                 <i class="fa fa-pen me-1"></i>
                 <span>Editar</span>
               </button>
-              <button ngbDropdownItem (click)="delete(row.id)">
+              <button
+                ngbDropdownItem
+                (click)="delete(row.id)"
+                *abpPermission="'Citas.Profesionales.Delete'">
                 <i class="fa fa-trash me-1"></i>
                 <span>Eliminar</span>
               </button>
