@@ -2,16 +2,14 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CitaComponent } from './cita.component';
 import { SharedModule } from '../shared/shared.module';
 import { CitaRoutingModule } from './cita-routing.module';
-
-// If you need modal functionality, import the correct ABP modal module.
-// import { AbpModalModule } from '@abp/ng.theme.shared'; // Adjust or remove this line if the module does not exist
+import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [CitaComponent],
   imports: [
     SharedModule,
     CitaRoutingModule,
-    // Add the correct modal module here if needed, e.g., AbpModalModule, after verifying its existence
+    NgbDatepickerModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] // Add this line if abp-modal is a web component
 })
