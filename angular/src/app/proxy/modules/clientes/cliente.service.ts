@@ -2,6 +2,7 @@ import type { ClienteDto, CreateUpdateClienteDto } from './models';
 import { RestService, Rest } from '@abp/ng.core';
 import type { PagedAndSortedResultRequestDto, PagedResultDto } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
+import type { CreateResponse, PagedAndSortedIncludeSearchInputDto } from '../common/models';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +15,15 @@ export class ClienteService {
     this.restService.request<any, ClienteDto>({
       method: 'POST',
       url: '/api/app/cliente',
+      body: input,
+    },
+    { apiName: this.apiName,...config });
+  
+
+  createNew = (input: CreateUpdateClienteDto, config?: Partial<Rest.Config>) =>
+    this.restService.request<any, CreateResponse>({
+      method: 'POST',
+      url: '/api/app/cliente/new',
       body: input,
     },
     { apiName: this.apiName,...config });
@@ -35,7 +45,7 @@ export class ClienteService {
     { apiName: this.apiName,...config });
   
 
-  getList = (input: PagedAndSortedResultRequestDto, config?: Partial<Rest.Config>) =>
+  getList = (input: PagedAndSortedIncludeSearchInputDto | PagedAndSortedResultRequestDto, config?: Partial<Rest.Config>) =>
     this.restService.request<any, PagedResultDto<ClienteDto>>({
       method: 'GET',
       url: '/api/app/cliente',
