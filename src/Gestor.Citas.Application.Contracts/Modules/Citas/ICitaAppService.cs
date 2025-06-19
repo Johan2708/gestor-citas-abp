@@ -1,5 +1,6 @@
 using System;
 using Gestor.Citas.Modules.Clientes;
+using Gestor.Citas.Modules.Common;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 
@@ -9,7 +10,7 @@ public interface ICitaAppService:
     ICrudAppService<
     CitaDto,
     Guid,
-    PagedAndSortedResultRequestDto,
+    PagedAndSortedIncludeSearchInputDto,
     CreateUpdateCitaDto>
 
 {

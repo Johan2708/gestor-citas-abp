@@ -8,6 +8,7 @@ import { NgbDateNativeAdapter, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap
 import { ClienteService } from '../proxy/modules/clientes';
 import { PagedAndSortedResultRequestDto } from '@abp/ng.core';
 import { ProfesionalService } from '../proxy/modules/profesionales';
+import type { PagedAndSortedIncludeSearchInputDto } from '../proxy/modules/common/models';
 
 
 @Component({
@@ -37,7 +38,10 @@ export class CitaComponent implements OnInit {
 
 
   ngOnInit() {
-    const bookStreamCreator = (query) => this.citaService.getList(query);
+    const bookStreamCreator = (query: PagedAndSortedIncludeSearchInputDto) => {
+      const queryWithIncludes = { ...query, includes: ['cliente'] };
+      return this.citaService.getList(queryWithIncludes);
+    };
 
     this.list.hookToQuery(bookStreamCreator).subscribe((response) => {
       this.cita = response;

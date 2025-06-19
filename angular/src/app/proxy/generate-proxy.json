@@ -1247,9 +1247,9 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
-                      "type": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
-                      "typeSimple": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                      "typeAsString": "Gestor.Citas.Modules.Common.PagedAndSortedIncludeSearchInputDto, Gestor.Citas.Application.Contracts",
+                      "type": "Gestor.Citas.Modules.Common.PagedAndSortedIncludeSearchInputDto",
+                      "typeSimple": "Gestor.Citas.Modules.Common.PagedAndSortedIncludeSearchInputDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
@@ -1322,6 +1322,128 @@
             }
           ],
           "actions": {
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/app/cita/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Gestor.Citas.Modules.CitasDto.CitaDto",
+                "typeSimple": "Gestor.Citas.Modules.CitasDto.CitaDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Gestor.Citas.Modules.CitasDto.CitaDto,Gestor.Citas.Modules.CitasDto.CitaDto,System.Guid,Gestor.Citas.Modules.Common.PagedAndSortedIncludeSearchInputDto>"
+            },
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/app/cita",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Gestor.Citas.Modules.Common.PagedAndSortedIncludeSearchInputDto, Gestor.Citas.Application.Contracts",
+                  "type": "Gestor.Citas.Modules.Common.PagedAndSortedIncludeSearchInputDto",
+                  "typeSimple": "Gestor.Citas.Modules.Common.PagedAndSortedIncludeSearchInputDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "GeneralSearch",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Includes",
+                  "jsonName": null,
+                  "type": "System.Collections.Generic.List<System.String>",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Gestor.Citas.Modules.CitasDto.CitaDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Gestor.Citas.Modules.CitasDto.CitaDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Gestor.Citas.Modules.CitasDto.CitaDto,Gestor.Citas.Modules.CitasDto.CitaDto,System.Guid,Gestor.Citas.Modules.Common.PagedAndSortedIncludeSearchInputDto>"
+            },
             "CreateAsyncByInput": {
               "uniqueName": "CreateAsyncByInput",
               "name": "CreateAsync",
@@ -1452,104 +1574,6 @@
               },
               "allowAnonymous": null,
               "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
-            },
-            "GetAsyncById": {
-              "uniqueName": "GetAsyncById",
-              "name": "GetAsync",
-              "httpMethod": "GET",
-              "url": "api/app/cita/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Gestor.Citas.Modules.CitasDto.CitaDto",
-                "typeSimple": "Gestor.Citas.Modules.CitasDto.CitaDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Gestor.Citas.Modules.CitasDto.CitaDto,Gestor.Citas.Modules.CitasDto.CitaDto,System.Guid,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto>"
-            },
-            "GetListAsyncByInput": {
-              "uniqueName": "GetListAsyncByInput",
-              "name": "GetListAsync",
-              "httpMethod": "GET",
-              "url": "api/app/cita",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
-                  "type": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
-                  "typeSimple": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "Sorting",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "SkipCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "MaxResultCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                }
-              ],
-              "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Gestor.Citas.Modules.CitasDto.CitaDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Gestor.Citas.Modules.CitasDto.CitaDto>"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Gestor.Citas.Modules.CitasDto.CitaDto,Gestor.Citas.Modules.CitasDto.CitaDto,System.Guid,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto>"
             }
           }
         },
@@ -1565,6 +1589,23 @@
               "type": "Gestor.Citas.Modules.Clientes.IClienteAppService",
               "name": "IClienteAppService",
               "methods": [
+                {
+                  "name": "CreateNewAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "Gestor.Citas.Modules.Clientes.CreateUpdateClienteDto, Gestor.Citas.Application.Contracts",
+                      "type": "Gestor.Citas.Modules.Clientes.CreateUpdateClienteDto",
+                      "typeSimple": "Gestor.Citas.Modules.Clientes.CreateUpdateClienteDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Gestor.Citas.Modules.Common.CreateResponse",
+                    "typeSimple": "Gestor.Citas.Modules.Common.CreateResponse"
+                  }
+                },
                 {
                   "name": "GetAsync",
                   "parametersOnMethod": [
@@ -1662,6 +1703,43 @@
             }
           ],
           "actions": {
+            "CreateNewAsyncByInput": {
+              "uniqueName": "CreateNewAsyncByInput",
+              "name": "CreateNewAsync",
+              "httpMethod": "POST",
+              "url": "api/app/cliente/new",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Gestor.Citas.Modules.Clientes.CreateUpdateClienteDto, Gestor.Citas.Application.Contracts",
+                  "type": "Gestor.Citas.Modules.Clientes.CreateUpdateClienteDto",
+                  "typeSimple": "Gestor.Citas.Modules.Clientes.CreateUpdateClienteDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Gestor.Citas.Modules.Clientes.CreateUpdateClienteDto",
+                  "typeSimple": "Gestor.Citas.Modules.Clientes.CreateUpdateClienteDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Gestor.Citas.Modules.Common.CreateResponse",
+                "typeSimple": "Gestor.Citas.Modules.Common.CreateResponse"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Gestor.Citas.Modules.Clientes.IClienteAppService"
+            },
             "CreateAsyncByInput": {
               "uniqueName": "CreateAsyncByInput",
               "name": "CreateAsync",
@@ -1696,7 +1774,7 @@
                 "type": "Gestor.Citas.Modules.Clientes.ClienteDto",
                 "typeSimple": "Gestor.Citas.Modules.Clientes.ClienteDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<Gestor.Citas.Modules.Clientes.ClienteDto,Gestor.Citas.Modules.Clientes.CreateUpdateClienteDto>"
             },
             "UpdateAsyncByIdAndInput": {
@@ -1753,7 +1831,7 @@
                 "type": "Gestor.Citas.Modules.Clientes.ClienteDto",
                 "typeSimple": "Gestor.Citas.Modules.Clientes.ClienteDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<Gestor.Citas.Modules.Clientes.ClienteDto,System.Guid,Gestor.Citas.Modules.Clientes.CreateUpdateClienteDto>"
             },
             "DeleteAsyncById": {
@@ -1790,7 +1868,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
             },
             "GetAsyncById": {
@@ -1827,7 +1905,7 @@
                 "type": "Gestor.Citas.Modules.Clientes.ClienteDto",
                 "typeSimple": "Gestor.Citas.Modules.Clientes.ClienteDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Gestor.Citas.Modules.Clientes.ClienteDto,Gestor.Citas.Modules.Clientes.ClienteDto,System.Guid,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto>"
             },
             "GetListAsyncByInput": {
@@ -1888,7 +1966,7 @@
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<Gestor.Citas.Modules.Clientes.ClienteDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Gestor.Citas.Modules.Clientes.ClienteDto>"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Gestor.Citas.Modules.Clientes.ClienteDto,Gestor.Citas.Modules.Clientes.ClienteDto,System.Guid,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto>"
             }
           }
@@ -2036,7 +2114,7 @@
                 "type": "Gestor.Citas.Modules.Profesionales.ProfesionalDto",
                 "typeSimple": "Gestor.Citas.Modules.Profesionales.ProfesionalDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<Gestor.Citas.Modules.Profesionales.ProfesionalDto,Gestor.Citas.Modules.Profesionales.CreateUpdateProfesionalDto>"
             },
             "UpdateAsyncByIdAndInput": {
@@ -2093,7 +2171,7 @@
                 "type": "Gestor.Citas.Modules.Profesionales.ProfesionalDto",
                 "typeSimple": "Gestor.Citas.Modules.Profesionales.ProfesionalDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<Gestor.Citas.Modules.Profesionales.ProfesionalDto,System.Guid,Gestor.Citas.Modules.Profesionales.CreateUpdateProfesionalDto>"
             },
             "DeleteAsyncById": {
@@ -2130,7 +2208,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
             },
             "GetAsyncById": {
@@ -2167,7 +2245,7 @@
                 "type": "Gestor.Citas.Modules.Profesionales.ProfesionalDto",
                 "typeSimple": "Gestor.Citas.Modules.Profesionales.ProfesionalDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Gestor.Citas.Modules.Profesionales.ProfesionalDto,Gestor.Citas.Modules.Profesionales.ProfesionalDto,System.Guid,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto>"
             },
             "GetListAsyncByInput": {
@@ -2228,7 +2306,7 @@
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<Gestor.Citas.Modules.Profesionales.ProfesionalDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Gestor.Citas.Modules.Profesionales.ProfesionalDto>"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Gestor.Citas.Modules.Profesionales.ProfesionalDto,Gestor.Citas.Modules.Profesionales.ProfesionalDto,System.Guid,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto>"
             }
           }
@@ -5028,18 +5106,6 @@
       "genericArguments": null,
       "properties": [
         {
-          "name": "Id",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
           "name": "ClienteId",
           "jsonName": null,
           "type": "System.Guid",
@@ -5080,6 +5146,18 @@
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Cliente",
+          "jsonName": null,
+          "type": "Gestor.Citas.Modules.Clientes.ClienteDto",
+          "typeSimple": "Gestor.Citas.Modules.Clientes.ClienteDto",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -5299,6 +5377,60 @@
           "jsonName": null,
           "type": "System.DateTime",
           "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Gestor.Citas.Modules.Common.CreateResponse": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Id",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Gestor.Citas.Modules.Common.PagedAndSortedIncludeSearchInputDto": {
+      "baseType": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "GeneralSearch",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Includes",
+          "jsonName": null,
+          "type": "[System.String]",
+          "typeSimple": "[string]",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,

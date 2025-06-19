@@ -12,4 +12,5 @@ public class CitaDto : AuditedEntityDto<Guid>
     public Guid ProfesionalId { get; set; }
     public DateTime FechaCita { get; set; }
     public string Motivo { get; set; }
+    public ClienteDto Cliente { get; set; }
 }

@@ -1,7 +1,8 @@
 import { RestService, Rest } from '@abp/ng.core';
-import type { PagedAndSortedResultRequestDto, PagedResultDto } from '@abp/ng.core';
+import type { PagedResultDto } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
 import type { CitaDto, CreateUpdateCitaDto } from '../citas-dto/models';
+import type { PagedAndSortedIncludeSearchInputDto } from '../common/models';
 
 @Injectable({
   providedIn: 'root',
@@ -35,11 +36,11 @@ export class CitaService {
     { apiName: this.apiName,...config });
   
 
-  getList = (input: PagedAndSortedResultRequestDto, config?: Partial<Rest.Config>) =>
+  getList = (input: PagedAndSortedIncludeSearchInputDto, config?: Partial<Rest.Config>) =>
     this.restService.request<any, PagedResultDto<CitaDto>>({
       method: 'GET',
       url: '/api/app/cita',
-      params: { sorting: input.sorting, skipCount: input.skipCount, maxResultCount: input.maxResultCount },
+      params: { generalSearch: input.generalSearch, includes: input.includes, sorting: input.sorting, skipCount: input.skipCount, maxResultCount: input.maxResultCount },
     },
     { apiName: this.apiName,...config });
   
