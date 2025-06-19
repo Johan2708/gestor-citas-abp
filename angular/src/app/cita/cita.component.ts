@@ -24,7 +24,7 @@ export class CitaComponent implements OnInit {
   form!: FormGroup;
   isModalOpen= false;
   listOfClientes: any[] = [];
-  listOfProfesionales: any[] = [];
+  listOfProfessionals: any[] = [];
 
   constructor(
     public readonly list: ListService,
@@ -49,9 +49,9 @@ export class CitaComponent implements OnInit {
         value: cliente.id
       }));
     });
-
+//listOfProfessionals
     this.profesionalService.getList(new PagedAndSortedResultRequestDto()).subscribe((profesionales) => {
-      this.listOfProfesionales = profesionales.items.map(profesional => ({
+      this.listOfProfessionals = profesionales.items.map(profesional => ({
         label: profesional.nombre + ' ' + profesional.especializacion,
         value: profesional.id
       }));
@@ -60,14 +60,13 @@ export class CitaComponent implements OnInit {
   
 
   createCita() {
-    this.selectedCita = {} as CitaDto;
+    this.selectedCita = {} as CitaDto; //carga en blanco OK
     this.buildForm();
     this.isModalOpen = true;
   }
 
-  editCita(id: number) {
-    // Here you should fetch the cita by id, for now just reset
-    this.selectedCita = {} as CitaDto;
+  editCita(cita: CitaDto) {
+    this.selectedCita = cita; // Cargar con informacion
     this.buildForm();
     this.isModalOpen = true;
   }
@@ -84,7 +83,7 @@ export class CitaComponent implements OnInit {
     this.form = this.fb.group({
       clienteId: [this.selectedCita?.clienteId ?? null, Validators.required],
       profesionalId: [this.selectedCita?.profesionalId ?? null, Validators.required],
-      fechaCita: [this.selectedCita?.fechaCita ?? null, Validators.required],
+      fechaCita: [this.selectedCita?.fechaCita ? new Date(this.selectedCita?.fechaCita): null, Validators.required],
       motivo: [this.selectedCita?.motivo ?? null, Validators.required],
     });
   }

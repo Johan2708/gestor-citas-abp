@@ -30,4 +30,12 @@ public static class CitasPermissions
         public const string Edit = Default + ".Edit";
         public const string Delete = Default + ".Delete";
     }
+    
+    public static class Citas
+    {
+        public const string Default = GroupName + ".Citas";
+        public const string Create = Default + ".Create";
+        public const string Edit = Default + ".Edit";
+        public const string Delete = Default + ".Delete";
+    }
 }

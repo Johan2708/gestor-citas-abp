@@ -23,10 +23,15 @@ public class CitasPermissionDefinitionProvider : PermissionDefinitionProvider
         clientesPermission.AddChild(CitasPermissions.Clientes.Edit, L("Permission:Clients.Edit"));
         clientesPermission.AddChild(CitasPermissions.Clientes.Delete, L("Permission:Clients.Delete"));
         
-        var profesionalesPermission = myGroup.AddPermission(CitasPermissions.Profesionales.Default, L("Permission:Profesionales"));
-        profesionalesPermission.AddChild(CitasPermissions.Profesionales.Create, L("Permission:Profesionales.Create"));
-        profesionalesPermission.AddChild(CitasPermissions.Profesionales.Edit, L("Permission:Profesionales.Edit"));
-        profesionalesPermission.AddChild(CitasPermissions.Profesionales.Delete, L("Permission:Profesionales.Delete"));
+        var profesionalesPermission = myGroup.AddPermission(CitasPermissions.Profesionales.Default, L("Permission:Professionals"));
+        profesionalesPermission.AddChild(CitasPermissions.Profesionales.Create, L("Permission:Professionals.Create"));
+        profesionalesPermission.AddChild(CitasPermissions.Profesionales.Edit, L("Permission:Professionals.Edit"));
+        profesionalesPermission.AddChild(CitasPermissions.Profesionales.Delete, L("Permission:Professionals.Delete"));
+            
+        var citasPermission = myGroup.AddPermission(CitasPermissions.Citas.Default, L("Permission:Appointments"));
+        citasPermission.AddChild(CitasPermissions.Citas.Create, L("Permission:Appointments.Create"));
+        citasPermission.AddChild(CitasPermissions.Citas.Edit, L("Permission:Appointments.Edit"));
+        citasPermission.AddChild(CitasPermissions.Citas.Delete, L("Permission:Appointments.Delete"));
     }
 
     private static LocalizableString L(string name)

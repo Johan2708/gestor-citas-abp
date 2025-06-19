@@ -34,7 +34,7 @@
               <i class="fa fa-cog me-1"></i>{{ '::Actions' | abpLocalization }}
             </button>
             <div ngbDropdownMenu>
-              <button *abpPermission="'Citas.Citas.Edit'" ngbDropdownItem (click)="editCita(row.id)">
+              <button *abpPermission="'Citas.Citas.Edit'" ngbDropdownItem (click)="editCita(row)">
                 <i class="fa fa-pen me-1"></i>
                 <span>{{ '::Edit' | abpLocalization }}</span>
               </button>
@@ -46,7 +46,7 @@
           </div>
         </ng-template>
       </ngx-datatable-column>
-      <ngx-datatable-column [name]="'::Cita:ClientId' | abpLocalization" prop="clienteId"></ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Appointment:Client' | abpLocalization" prop="clienteId"></ngx-datatable-column>
       <ngx-datatable-column [name]="'::Cita:ProfesionalId' | abpLocalization" prop="profesionalId"></ngx-datatable-column>
       <ngx-datatable-column [name]="'::Cita:FechaCita' | abpLocalization" prop="fechaCita">
          <ng-template let-row="row" ngx-datatable-cell-template>
@@ -67,9 +67,9 @@
   <ng-template #abpBody>
     <form [formGroup]="form" (ngSubmit)="save()">
       <div class="mt-2">
-        <label for="cliente">{{ '::Cita:ClientId' | abpLocalization }}</label><span> * </span>
+        <label for="cliente">{{ '::Appointment:Client' | abpLocalization }}</label><span> * </span>
         <select class="form-control" id="cliente" formControlName="clienteId">
-          <option [ngValue]="null">Select a {{ '::Cita:ClientId' | abpLocalization }}</option>
+          <option [ngValue]="null">{{'::ComboboxSelect' | abpLocalization}} {{ '::Appointment:Client' | abpLocalization }}</option>
           <option [ngValue]="client.value" *ngFor="let client of listOfClientes"> {{client.label}} </option>
         </select>
       </div>
@@ -79,7 +79,7 @@
      <div class="mt-2">
   <label for="profesional">{{ '::Cita:ProfesionalId' | abpLocalization }}</label><span> * </span>
   <select class="form-control" id="profesional" formControlName="profesionalId">
-    <option [ngValue]="null">Select a {{ '::Cita:ProfesionalId' | abpLocalization }}</option>
+    <option [ngValue]="null">{{'::ComboboxSelect' | abpLocalization}} {{ '::Cita:ProfesionalId' | abpLocalization }}</option>
     <option [ngValue]="professional.value" *ngFor="let professional of listOfProfessionals"> {{professional.label}} </option>
   </select>
 </div>
