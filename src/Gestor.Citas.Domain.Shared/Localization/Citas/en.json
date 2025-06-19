@@ -2,25 +2,33 @@
   "Culture": "en",
   "Texts": {
     "AppName": "Citas",
+    
+    "Menu:Home": "Home",
     "Menu:Citas": "Book Store",
     "Menu:Books": "Books",
     "Menu:Clients": "Clients",
     "Menu:Professionals": "Professionals",
-    "Menu:Profesionales": "Professionals",
+    "Menu:Appointments": "Appointments",
+
     "Actions": "Actions",
     "Close": "Close",
     "Delete": "Delete",
     "Edit": "Edit",
+    "AreYouSure": "Are you sure?",
+    "AreYouSureToDelete": "Are you sure you want to delete this item?",
+    "SuccessfullyDeleted": "Successfully deleted!",
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information visit",
+    "Welcome": "Welcome",
+    "ComboboxSelect": "Select a",
+    "MultiselectSelect": "Select one or more",
+    
     "PublishDate": "Publish date",
     "NewBook": "New book",
     "Name": "Name",
     "Type": "Type",
     "Price": "Price",
     "CreationTime": "Creation time",
-    "AreYouSure": "Are you sure?",
-    "AreYouSureToDelete": "Are you sure you want to delete this item?",
     "BookDeletionConfirmationMessage": "Are you sure to delete the book '{0}'?",
-    "SuccessfullyDeleted": "Successfully deleted!",
     "Enum:BookType.0": "Undefined",
     "Enum:BookType.1": "Adventure",
     "Enum:BookType.2": "Biography",
@@ -31,9 +39,26 @@
     "Enum:BookType.7": "Science fiction",
     "Enum:BookType.8": "Poetry",
     
-    "Menu:Home": "Home",
-    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information visit",
-    "Welcome": "Welcome",
+    "Permission:Citas": "Book Store",
+    "Permission:Books": "Book Management",
+    "Permission:Books.Create": "Creating new books",
+    "Permission:Books.Edit": "Editing the books",
+    "Permission:Books.Delete": "Deleting the books",
+
+    "Permission:Clients": "Client Management",
+    "Permission:Clients.Create": "Creating new clients",
+    "Permission:Clients.Edit": "Editing the clients",
+    "Permission:Clients.Delete": "Deleting the clients",
+
+    "Permission:Appointments": "Appointment Management",
+    "Permission:Appointments.Create": "Creating new appointments",
+    "Permission:Appointments.Edit": "Editing the appointments",
+    "Permission:Appointments.Delete": "Deleting the appointments",
+
+    "Permission:Professionals": "Professionals Management",
+    "Permission:Professionals.Create": "Creating new Professionals",
+    "Permission:Professionals.Edit": "Editing the Professionals",
+    "Permission:Professionals.Delete": "Deleting the Professionals",
 
     "Client:NewClient": "New client",
     "Client:Name": "Name",
@@ -42,22 +67,13 @@
     "Client:PhoneNumber": "Phone number",
     "Client:Address": "Address",
     "Client:BirthDate": "Birth date",
-
-
-    "Permission:Citas": "Book Store",
-    "Permission:Books": "Book Management",
-    "Permission:Books.Create": "Creating new books",
-    "Permission:Books.Edit": "Editing the books",
-    "Permission:Books.Delete": "Deleting the books",
     
-    "Permission:Clients": "Client Management",
-    "Permission:Clients.Create": "Creating new clients",
-    "Permission:Clients.Edit": "Editing the clients",
-    "Permission:Clients.Delete": "Deleting the clients",
-
-    "Permission:Professionals": "Professionals Management",
-    "Permission:Professionals.Create": "Creating new Professionals",
-    "Permission:Professionals.Edit": "Editing the Professionals",
-    "Permission:Professionals.Delete": "Deleting the Professionals"
+    "Cita:NewCita": "New appointment",
+    "Cita:Date": "Date",
+    "Cita:Time": "Time",
+    "Appointment:Client": "Client",
+    "Cita:Professional": "Professional",
+    "Cita:Description": "Description",
+    "Cita:Status": "Status"
   }
 }

@@ -2,13 +2,15 @@
   "culture": "es",
   "texts": {
     "AppName": "Citas",
+    
     "Menu:Home": "Hogar",
     "Menu:ContactUs": "Contáctenos",
     "Menu:ArticleSample": "Muestra de artículo",
     "Menu:Books": "Libros",
     "Menu:Clients": "Clientes",
     "Menu:Professionals": "Profesionales",
-    "Menu:Profesionales": "Profesionales",
+    "Menu:Appointments": "Citas",
+    
     "Home": "Hogar",
     "Welcome": "Bienvenido",
     "LongWelcomeMessage": "Bienvenido a la aplicacion. Este es un proyecto de inicio basado en el marco ABP. Para obtener mas informacion, visite",
@@ -42,14 +44,13 @@
     "SeeAllUsers": "Ver todos los usuarios",
     "TakePhoto": "Tomar foto",
     "ChoosePhoto": "Escoge una foto",
-    
-    "Client:NewClient": "Nuevo cliente",
-    "Client:Name": "Nombre",
-    "Client:Surname": "Apellido",
-    "Client:Email": "Correo electrónico",
-    "Client:PhoneNumber": "Número de teléfono",
-    "Client:Address": "Dirección",
-    "Client:BirthDate": "Fecha de nacimiento",
+
+    "Actions": "Acciones",
+    "Close": "Cerrar",
+    "Delete": "Eliminar",
+    "Edit": "Editar",
+    "ComboboxSelect": "Seleccione un",
+    "MultiselectSelect": "Seleccione uno o más",
 
     "Permission:Citas": "Gestión de citas",
     "Permission:Books": "Gestión de libros",
@@ -65,7 +66,16 @@
     "Permission:Professionals": "Gestión de profesionales",
     "Permission:Professionals.Create": "Crear nuevos profesionales",
     "Permission:Professionals.Edit": "Editar los profesionales",
-    "Permission:Professionals.Delete": "Eliminar los profesionales"
-    
+    "Permission:Professionals.Delete": "Eliminar los profesionales",
+
+    "Client:NewClient": "Nuevo cliente",
+    "Client:Name": "Nombre",
+    "Client:Surname": "Apellido",
+    "Client:Email": "Correo electrónico",
+    "Client:PhoneNumber": "Número de teléfono",
+    "Client:Address": "Dirección",
+    "Client:BirthDate": "Fecha de nacimiento",
+
+    "Appointment:Client": "Cliente"
   }
 }

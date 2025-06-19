@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfesionalesComponent } from './profesionales.component';
-import { permission } from 'process';
 import { authGuard, permissionGuard } from '@abp/ng.core';
 
 
