@@ -51,7 +51,18 @@
           {{ row.cliente?.nombre + " " + row.cliente?.apellido }}
         </ng-template>
       </ngx-datatable-column>
-      <ngx-datatable-column [name]="'::Cita:ProfesionalId' | abpLocalization" prop="profesionalId"></ngx-datatable-column>
+
+      <ngx-datatable-column [name]="'::Appointment:Professional' | abpLocalization" prop="profesionalId">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row.profesional?.nombre + " " + row.profesional?.especializacion }}
+        </ng-template>
+      </ngx-datatable-column>
+
+
+
+
+
+      
       <ngx-datatable-column [name]="'::Cita:FechaCita' | abpLocalization" prop="fechaCita">
          <ng-template let-row="row" ngx-datatable-cell-template>
           {{ row.fechaCita | date:'short' }}

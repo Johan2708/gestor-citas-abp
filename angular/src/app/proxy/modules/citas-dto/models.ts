@@ -1,5 +1,6 @@
 import type { AuditedEntityDto } from '@abp/ng.core';
 import type { ClienteDto } from '../clientes/models';
+import type { ProfesionalDto } from '../profesionales/models';
 
 export interface CitaDto extends AuditedEntityDto<string> {
   clienteId?: string;
@@ -7,6 +8,7 @@ export interface CitaDto extends AuditedEntityDto<string> {
   fechaCita?: string;
   motivo?: string;
   cliente: ClienteDto;
+  profesional: ProfesionalDto;
 }
 
 export interface CreateUpdateCitaDto {

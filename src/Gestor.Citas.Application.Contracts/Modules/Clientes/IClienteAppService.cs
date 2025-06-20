@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Gestor.Citas.Modules.Common;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Gestor.Citas.Modules.Citas;
 using Gestor.Citas.Modules.CitasDto;
 using Gestor.Citas.Modules.Clientes;
+using Gestor.Citas.Modules.Common;
 using Gestor.Citas.Modules.Profesionales;
 using Shouldly;
 using Volo.Abp.Application.Dtos;
@@ -32,7 +33,7 @@ public abstract class CitaAppService_Tests<TStartupModule> : CitasApplicationTes
     {
         // Act
         var result = await _citaAppService.GetListAsync(
-            new PagedAndSortedResultRequestDto()
+            new PagedAndSortedIncludeSearchInputDto()
         );
 
         // Assert
@@ -68,7 +69,7 @@ public abstract class CitaAppService_Tests<TStartupModule> : CitasApplicationTes
     public async Task Should_Get_Cita_By_Id()
     {
         // Arrange
-        var listResult = await _citaAppService.GetListAsync(new PagedAndSortedResultRequestDto());
+        var listResult = await _citaAppService.GetListAsync(new PagedAndSortedIncludeSearchInputDto());
         var cita = listResult.Items.First();
 
         // Act
@@ -83,7 +84,7 @@ public abstract class CitaAppService_Tests<TStartupModule> : CitasApplicationTes
     public async Task Should_Update_Cita()
     {
         // Arrange
-        var listResult = await _citaAppService.GetListAsync(new PagedAndSortedResultRequestDto());
+        var listResult = await _citaAppService.GetListAsync(new PagedAndSortedIncludeSearchInputDto());
         var cita = listResult.Items.First();
 
         var updateDto = new CreateUpdateCitaDto
@@ -111,7 +112,7 @@ public abstract class CitaAppService_Tests<TStartupModule> : CitasApplicationTes
         await _citaAppService.DeleteAsync(createResult.Id);
 
         // Assert
-        var listResult = await _citaAppService.GetListAsync(new PagedAndSortedResultRequestDto());
+        var listResult = await _citaAppService.GetListAsync(new PagedAndSortedIncludeSearchInputDto());
         listResult.Items.Any(c => c.Id == createResult.Id).ShouldBeFalse();
     }
 
