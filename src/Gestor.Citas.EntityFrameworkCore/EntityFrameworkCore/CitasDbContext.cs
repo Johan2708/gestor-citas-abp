@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
-using Gestor.Citas.Books;
 using Gestor.Citas.Configurations;
 using Gestor.Citas.Modules.Cita;
 using Gestor.Citas.Modules.Clientes;
@@ -32,7 +31,6 @@ public class CitasDbContext :
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
-    public DbSet<Book> Books { get; set; }
     public DbSet<Cliente> Clientes { get; set; }
     public DbSet<Profesional> Profesionales { get; set; }
     public DbSet<Cita> Citas { get; set; }
@@ -88,13 +86,7 @@ public class CitasDbContext :
         builder.ConfigureTenantManagement();
         builder.ConfigureBlobStoring();
         
-        builder.Entity<Book>(b =>
-        {
-            b.ToTable(CitasConsts.DbTablePrefix + "Books",
-                CitasConsts.DbSchema);
-            b.ConfigureByConvention(); //auto configure for the base class props
-            b.Property(x => x.Name).IsRequired().HasMaxLength(128);
-        });
+        
         
         /* Configure your own tables/entities inside here */
 

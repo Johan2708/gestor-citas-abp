@@ -17,13 +17,7 @@ function configureRoutes() {
         order: 1,
         layout: eLayoutType.application,
       },
-      {
-        path: '/books',
-        name: '::Menu:Books',
-        iconClass: 'fas fa-book',
-        layout: eLayoutType.application,
-        requiredPolicy: 'Citas.Books',
-      },
+      
       {
         path: '/clientes',
         name: '::Menu:Clients',
