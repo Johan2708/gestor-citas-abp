@@ -6,7 +6,6 @@
     "Menu:Home": "Hogar",
     "Menu:ContactUs": "Contáctenos",
     "Menu:ArticleSample": "Muestra de artículo",
-    "Menu:Books": "Libros",
     "Menu:Clients": "Clientes",
     "Menu:Professionals": "Profesionales",
     "Menu:Appointments": "Citas",
@@ -53,10 +52,6 @@
     "MultiselectSelect": "Seleccione uno o más",
 
     "Permission:Citas": "Gestión de citas",
-    "Permission:Books": "Gestión de libros",
-    "Permission:Books.Create": "Crear nuevos libros",
-    "Permission:Books.Edit": "Editar los libros",
-    "Permission:Books.Delete": "Eliminar los libros",
     
     "Permission:Clients": "Gestión de clientes",
     "Permission:Clients.Create": "Crear nuevos clientes",
