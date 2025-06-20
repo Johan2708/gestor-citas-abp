@@ -51,6 +51,11 @@
     "Edit": "Editar",
     "ComboboxSelect": "Seleccione un",
     "MultiselectSelect": "Seleccione uno o más",
+    "AreYouSure": "¿Estás seguro?",
+    "AreYouSureToDelete": "¿Estás seguro de que quieres eliminar este elemento",
+       "Add": "Agregar",
+    "Cancel": "Cancelar",
+
 
     "Permission:Citas": "Gestión de citas",
     "Permission:Books": "Gestión de libros",
@@ -76,6 +81,23 @@
     "Client:Address": "Dirección",
     "Client:BirthDate": "Fecha de nacimiento",
 
-    "Appointment:Client": "Cliente"
+    "Appointment:Client": "Cliente",
+    "Appointment:Professional": "Profesional",
+
+    "Appointment:NewAppointment": "Nueva Cita",
+    "Appointment:Date": "Fecha",
+    "Appointment:Time": "Hora",
+    "Appointment:Client": "Cliente",
+    "Appointment:Professional": "Profesional",
+    "Appointment:Reason": "Motivo",
+    "Appointment:Status": "Estado",
+
+      "Professional": "Profesional",
+    "Professional:NewProfessional": "Nuevo Profesional",
+    "Professional:Name": "Nombre ",
+    "Professional:Surname": "Apellido",
+    "Professional:Address": "Direccion"  ,  
+    "Professional:Especiality": "Especializacion"    
+
   }
 }

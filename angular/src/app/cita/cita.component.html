@@ -10,7 +10,7 @@
         <div class="text-lg-end pt-2">
           <button *abpPermission="'Citas.Citas.Create'" id="create" class="btn btn-primary" type="button" (click)="createCita()">
             <i class="fa fa-plus me-1"></i>
-            <span>{{ "::Cita:NewCita" | abpLocalization }}</span>
+            <span>{{ "::Appointment:NewAppointment" | abpLocalization }}</span>
           </button>
         </div>
       </div>
@@ -49,15 +49,15 @@
       <ngx-datatable-column [name]="'::Appointment:Client' | abpLocalization" prop="clienteId">
         <ng-template let-row="row" ngx-datatable-cell-template>
           {{ row.cliente?.nombre + " " + row.cliente?.apellido }}
-        </ng-template>
+        </ng-template>3
       </ngx-datatable-column>
-      <ngx-datatable-column [name]="'::Cita:ProfesionalId' | abpLocalization" prop="profesionalId"></ngx-datatable-column>
-      <ngx-datatable-column [name]="'::Cita:FechaCita' | abpLocalization" prop="fechaCita">
+      <ngx-datatable-column [name]="'::Appointment:Professional' | abpLocalization" prop="profesionalId"></ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Appointment:Date' | abpLocalization" prop="fechaCita">
          <ng-template let-row="row" ngx-datatable-cell-template>
           {{ row.fechaCita | date:'short' }}
         </ng-template>
       </ngx-datatable-column>
-      <ngx-datatable-column [name]="'::Cita:Motivo' | abpLocalization" prop="motivo"></ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Appointment:Reason' | abpLocalization" prop="motivo"></ngx-datatable-column>
     </ngx-datatable>
   </div>
 </div>
@@ -81,9 +81,9 @@
 
 
      <div class="mt-2">
-  <label for="profesional">{{ '::Cita:ProfesionalId' | abpLocalization }}</label><span> * </span>
+  <label for="profesional">{{ '::Appointment:Professional' | abpLocalization }}</label><span> * </span>
   <select class="form-control" id="profesional" formControlName="profesionalId">
-    <option [ngValue]="null">{{'::ComboboxSelect' | abpLocalization}} {{ '::Cita:ProfesionalId' | abpLocalization }}</option>
+    <option [ngValue]="null">{{'::ComboboxSelect' | abpLocalization}} {{ '::Appointment:Professional' | abpLocalization }}</option>
     <option [ngValue]="professional.value" *ngFor="let professional of listOfProfessionals"> {{professional.label}} </option>
   </select>
 </div>
@@ -92,7 +92,7 @@
 
 
       <div class="mt-2">
-        <label for="cita-fecha">{{ '::Cita:FechaCita' | abpLocalization }}</label><span> * </span>
+        <label for="cita-fecha">{{ '::Appointment:Date' | abpLocalization }}</label><span> * </span>
         <input
           #datepicker="ngbDatepicker"
           class="form-control"
@@ -103,7 +103,7 @@
         />
       </div>
       <div class="mt-2">
-        <label for="cita-motivo">{{ '::Cita:Motivo' | abpLocalization }}</label><span> * </span>
+        <label for="cita-motivo">{{ '::Appointment:Reason' | abpLocalization }}</label><span> * </span>
         <textarea id="cita-motivo" class="form-control" formControlName="motivo"></textarea>
       </div>
     </form>
