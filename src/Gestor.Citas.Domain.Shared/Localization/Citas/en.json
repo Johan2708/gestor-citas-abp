@@ -74,6 +74,9 @@
     "Appointment:Client": "Client",
     "Cita:Professional": "Professional",
     "Cita:Description": "Description",
-    "Cita:Status": "Status"
+    "Cita:Status": "Status",
+
+    "Appointment:Professional": "Profesional"
+
   }
 }

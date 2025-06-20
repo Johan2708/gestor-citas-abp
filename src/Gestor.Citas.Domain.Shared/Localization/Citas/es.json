@@ -76,6 +76,8 @@
     "Client:Address": "Dirección",
     "Client:BirthDate": "Fecha de nacimiento",
 
-    "Appointment:Client": "Cliente"
+    "Appointment:Client": "Cliente",
+    "Appointment:Professional": "Profesional"
+
   }
 }

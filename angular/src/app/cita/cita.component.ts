@@ -39,8 +39,10 @@ export class CitaComponent implements OnInit {
 
   ngOnInit() {
     const bookStreamCreator = (query: PagedAndSortedIncludeSearchInputDto) => {
-      const queryWithIncludes = { ...query, includes: ['cliente'] };
+      const queryWithIncludes = { ...query, includes: ['cliente', 'profesional'] };
       return this.citaService.getList(queryWithIncludes);
+
+      
     };
 
     this.list.hookToQuery(bookStreamCreator).subscribe((response) => {
