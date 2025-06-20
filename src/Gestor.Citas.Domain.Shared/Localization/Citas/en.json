@@ -4,8 +4,6 @@
     "AppName": "Citas",
     
     "Menu:Home": "Home",
-    "Menu:Citas": "Book Store",
-    "Menu:Books": "Books",
     "Menu:Clients": "Clients",
     "Menu:Professionals": "Professionals",
     "Menu:Appointments": "Appointments",
@@ -22,28 +20,9 @@
     "ComboboxSelect": "Select a",
     "MultiselectSelect": "Select one or more",
     
-    "PublishDate": "Publish date",
-    "NewBook": "New book",
-    "Name": "Name",
-    "Type": "Type",
-    "Price": "Price",
-    "CreationTime": "Creation time",
-    "BookDeletionConfirmationMessage": "Are you sure to delete the book '{0}'?",
-    "Enum:BookType.0": "Undefined",
-    "Enum:BookType.1": "Adventure",
-    "Enum:BookType.2": "Biography",
-    "Enum:BookType.3": "Dystopia",
-    "Enum:BookType.4": "Fantastic",
-    "Enum:BookType.5": "Horror",
-    "Enum:BookType.6": "Science",
-    "Enum:BookType.7": "Science fiction",
-    "Enum:BookType.8": "Poetry",
+
     
-    "Permission:Citas": "Book Store",
-    "Permission:Books": "Book Management",
-    "Permission:Books.Create": "Creating new books",
-    "Permission:Books.Edit": "Editing the books",
-    "Permission:Books.Delete": "Deleting the books",
+   
 
     "Permission:Clients": "Client Management",
     "Permission:Clients.Create": "Creating new clients",
