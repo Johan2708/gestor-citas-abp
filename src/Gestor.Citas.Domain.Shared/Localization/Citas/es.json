@@ -92,7 +92,7 @@
     "Professional:Name": "Nombre ",
     "Professional:Surname": "Apellido",
     "Professional:Address": "Direccion"  ,  
-    "Professional:Especiality": "Especializacion"    
+    "Professional:Especiality": "Especializacion"   , 
     "Appointment:Professional": "Profesional"
 
   }

@@ -11,10 +11,6 @@ public class CitasPermissionDefinitionProvider : PermissionDefinitionProvider
     {
         var myGroup = context.AddGroup(CitasPermissions.GroupName);
 
-        var booksPermission = myGroup.AddPermission(CitasPermissions.Books.Default, L("Permission:Books"));
-        booksPermission.AddChild(CitasPermissions.Books.Create, L("Permission:Books.Create"));
-        booksPermission.AddChild(CitasPermissions.Books.Edit, L("Permission:Books.Edit"));
-        booksPermission.AddChild(CitasPermissions.Books.Delete, L("Permission:Books.Delete"));
         //Define your own permissions here. Example:
         //myGroup.AddPermission(CitasPermissions.MyPermission1, L("Permission:MyPermission1"));
        
