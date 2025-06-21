@@ -24,7 +24,10 @@ jobs:
         run: dotnet build --no-restore --configuration Release
 
       - name: Run all tests
-        run: dotnet test --no-build --configuration Release --logger trx
+        run: |
+          dotnet test ./test/Gestor.Citas.Application.Tests/Gestor.Citas.Application.Tests.csproj --no-build --configuration Release --logger trx
+          dotnet test ./test/Gestor.Citas.Domain.Tests/Gestor.Citas.Domain.Tests.csproj --no-build --configuration Release --logger trx
+          dotnet test ./test/Gestor.Citas.EntityFrameworkCore.Tests/Gestor.Citas.EntityFrameworkCore.Tests.csproj --no-build --configuration Release --logger trx
   test-frontend:
     runs-on: ubuntu-latest
 
