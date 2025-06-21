@@ -1,0 +1,59 @@
+name: Run Gestor.Citas.Application.Tests
+
+on:
+  push:
+    paths:
+      - 'src/**'
+      - 'test/Gestor.Citas.Application.Tests/**'
+      - '.github/workflows/run-application-tests.yml'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'test/Gestor.Citas.Application.Tests/**'
+      - '.github/workflows/run-application-tests.yml'
+
+jobs:
+  test-backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore test/Gestor.Citas.Application.Tests/Gestor.Citas.Application.Tests.csproj
+
+      - name: Build solution
+        run: dotnet build test/Gestor.Citas.Application.Tests/Gestor.Citas.Application.Tests.csproj --no-restore --configuration Release
+
+      - name: Run tests
+        run: dotnet test test/Gestor.Citas.Application.Tests/Gestor.Citas.Application.Tests.csproj --no-build --configuration Release --logger trx
+  
+  test-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        working-directory: angular
+        run: yarn install
+
+      - name: Build frontend
+        working-directory: angular
+        run: yarn build
+
+      - name: Lint frontend
+        working-directory: angular
+        run: yarn lint
