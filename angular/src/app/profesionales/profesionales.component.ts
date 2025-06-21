@@ -7,6 +7,7 @@ import { Confirmation, ConfirmationService } from '@abp/ng.theme.shared';
 
 @Component({
   selector: 'app-profesionales',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
   templateUrl: './profesionales.component.html',
   styleUrl: './profesionales.component.scss',

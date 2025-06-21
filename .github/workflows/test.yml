@@ -18,14 +18,13 @@ jobs:
           dotnet-version: '9.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore test/Gestor.Citas.Application.Tests/Gestor.Citas.Application.Tests.csproj
+        run: dotnet restore
 
       - name: Build solution
-        run: dotnet build test/Gestor.Citas.Application.Tests/Gestor.Citas.Application.Tests.csproj --no-restore --configuration Release
+        run: dotnet build --no-restore --configuration Release
 
-      - name: Run tests
-        run: dotnet test test/Gestor.Citas.Application.Tests/Gestor.Citas.Application.Tests.csproj --no-build --configuration Release --logger trx
-  
+      - name: Run all tests
+        run: dotnet test --no-build --configuration Release --logger trx
   test-frontend:
     runs-on: ubuntu-latest
 
