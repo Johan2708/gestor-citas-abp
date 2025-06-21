@@ -1,12 +1,6 @@
-name: Run Gestor.Citas.Application.Tests
-
 on:
-  push:
-    paths:
-      - 'src/**'
-      - 'test/Gestor.Citas.Application.Tests/**'
-      - '.github/workflows/run-application-tests.yml'
   pull_request:
+    types: [ edited, reopened, ready_for_review, synchronize, opened ]
     paths:
       - 'src/**'
       - 'test/Gestor.Citas.Application.Tests/**'
