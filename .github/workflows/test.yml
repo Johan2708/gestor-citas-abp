@@ -1,0 +1,53 @@
+name: Run Tests
+
+on:
+  pull_request:
+    types: [ edited, reopened, ready_for_review, synchronize, opened ]
+
+jobs:
+  test-backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build solution
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Run all tests
+        run: |
+          dotnet test ./test/Gestor.Citas.Application.Tests/Gestor.Citas.Application.Tests.csproj --no-build --configuration Release --logger trx
+          dotnet test ./test/Gestor.Citas.Domain.Tests/Gestor.Citas.Domain.Tests.csproj --no-build --configuration Release --logger trx
+          dotnet test ./test/Gestor.Citas.EntityFrameworkCore.Tests/Gestor.Citas.EntityFrameworkCore.Tests.csproj --no-build --configuration Release --logger trx
+  test-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        working-directory: angular
+        run: yarn install
+
+      - name: Build frontend
+        working-directory: angular
+        run: yarn build
+
+      - name: Lint frontend
+        working-directory: angular
+        run: yarn lint
